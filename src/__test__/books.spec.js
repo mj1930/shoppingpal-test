@@ -8,7 +8,7 @@ describe("Testing the create new books API", () => {
 		const response = await supertest(app).post('/books/create').send({
             "author": "Mihir Jain",
             "title": "Better Tomorrow",
-            "isbn": "123467",
+            "isbn": "1234267",
             "releaseDate": "2015-03-25"
         });
         expect(response.status).toBe(200);

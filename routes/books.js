@@ -14,7 +14,7 @@ router.get('/find-one', async(req, res) => {
             data: result.data,
             message: result.message
         });
-    } else if (Object.keys(result.data).length == 0) {
+    } else if (result && Object.keys(result.data).length == 0) {
         res.status(202).json({
             data: result.data,
             message: result.message
@@ -38,7 +38,7 @@ router.get('/find-all', async (req, res) => {
             data: result.data,
             message: result.message
         });
-    } else if (Object.keys(result.data).length == 0) {
+    } else if (result && Object.keys(result.data).length == 0) {
         res.status(202).json({
             data: result.data,
             message: result.message
@@ -62,7 +62,7 @@ router.post('/create', async (req, res) => {
             data: result.data,
             message: result.message
         });
-    } else if (Object.keys(result.data).length == 0) {
+    } else if (result && Object.keys(result.data).length == 0) {
         res.status(202).json({
             data: result.data,
             message: result.message
@@ -81,12 +81,12 @@ router.post('/create', async (req, res) => {
 router.post('/update', async (req, res) => {
     const bookFunction = new bookController(req.body);
     const result = await bookFunction.updateBookData();
-    if (Object.keys(result.data).length > 0) {
+    if (result && Object.keys(result.data).length > 0) {
         res.status(200).json({
             data: result.data,
             message: result.message
         });
-    } else if (Object.keys(result.data).length == 0) {
+    } else if (result && Object.keys(result.data).length == 0) {
         res.status(202).json({
             data: result.data,
             message: result.message
