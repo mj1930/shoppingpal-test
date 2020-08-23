@@ -128,12 +128,15 @@ module.exports = class BooksController {
 
     checkNull(obj) {
         let valPresent = false;
-        Object.keys(obj).forEach(key => {
+        let keys = Object.keys(obj);
+        for (let i = 0; i < keys.length;i++) {
+            let key = keys[i];
             if (obj[key]) {
                 valPresent = true;
+            } else {
+                return false;
             }
-            return false;
-        });
+        }
         return valPresent;
     }
 };
