@@ -18,7 +18,7 @@ module.exports = class BooksController {
         };
         try {
             if (this.checkNull(bookData)) {
-                let bookExists = await bookModel.countDocuments({isbn});
+                let bookExists = await bookModel.countDocuments({isbn: this.isbn});
                 if (!bookExists) {
                     let book = await bookModel.create(bookData);
                     return {
